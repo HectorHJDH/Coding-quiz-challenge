@@ -1,3 +1,6 @@
+.hidden {
+    display: none;
+}
 
 nav { 
     display: flex;
@@ -18,11 +21,15 @@ nav {
     color: black;
 }
 
-.title {
+.title, .question-title {
     text-align: center;
     margin-top: 50px;
     font-size: 40px;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.question-title {
+    text-align: left;
 }
 
 main {
@@ -50,10 +57,9 @@ main p {
 /* Quiz */
 
 .answers {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 26.1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .btnQuiz {
@@ -80,8 +86,9 @@ main p {
     font-size: 1.5rem;
 }
 
-.choice-container:hover {
+.choice-container:hover, .btnStart:hover {
     background-color: #B753E4;
+    border-color: #B753E4;
     cursor: pointer;
 }
 
@@ -91,4 +98,48 @@ main p {
     padding: 0.2rem 0.5rem;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
+}
+
+.choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    width: 200px;
+    margin: 0;
+}
+
+.btn {
+    display: inline-block;
+    text-align: left;
+    left: 46%;
+    background-color: #351C75;
+    border: 2px solid #351C75;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    width: 250px;
+    margin: 5px 0;
+}
+
+.btn:hover {
+    background-color: #B753E4;
+    border-color: #B753E4;
+    cursor: pointer;
+}
+
+.question-container {
+    justify-content: center;
+    text-align: left;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.result {
+    color: gray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    font-style: italic;
 }

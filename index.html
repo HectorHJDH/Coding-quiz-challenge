@@ -8,23 +8,30 @@
 </head>
 <body>
     <nav class="navBar">
-        <a href="" class="view-scores">View high scores</a>
-        <a href="./assets/Pages/Quizz.html">Quiz</a>
-        <a href="./assets/Pages/Scores.html">Scores</a>
-        <p class="timer">Time: 0</p>
+        <a class="view-scores">View high scores</a>
+        <p class="timer" id="timer">Time: 0</p>
     </nav>
 
-    <main>
+    <main id="start">
         <h1 class="title">Coding Quiz Challenge</h1>
         <p>
             Try to answer the following code-related questions within the time limit.<br>
             Keep in mind that incorrect answers will penalize your score/time<br>
             by ten seconds!
         </p>
-        <button class="btnStart">
+        <button class="btnStart" id="start-quiz">
             Start Quiz
         </button>
     </main>
+
+    <form class="hidden" id="quiz">
+        <div class="question-container">
+            <h2 id="question" class="question-title">Quiz</h2>
+            <ul id="choices" class="choices"></ul>
+            <div id="add-hr"></div>
+            <p id="result" class="result"></p>
+        </div>
+    </form>
     
     <script src="./assets/js/scripts.js"></script>
 </body>
