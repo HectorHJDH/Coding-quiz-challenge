@@ -109,5 +109,14 @@ function startTimer() {
 // function; ends the quiz and returs in screen how many points the user got, also stops the timer
 function endQuiz() {
   clearInterval(timerId);
-  document.getElementById("quiz").innerHTML = "<h2>All done!</h2><p>Your final score is  " + score + ".";
+  const quizElement = document.getElementById("quiz");
+
+  quizElement.innerHTML = 
+  `<div style="justify-content: center; text-align: left; margin-left: 25%; margin-right: 25%; font-family: Arial;">
+  <h2 style="font-size: 40px;">All done!</h2>
+  <p style="font-size: 25px;">Your final score is  ` + score + ` / 5.</p>
+  <p style="font-size: 25px;">Enter Initials: <input style="font-size: 25px;">
+  <button style="font-size: 20px; background-color: #351C75; border-radius: 10px; padding: 5px 15px; color: white; font-family: Arial, Helvetica, sans-serif;">Submit</button></p>
+  </div>`;
+  //document.getElementById("quiz").innerHTML = "<h2>All done!</h2><p>Your final score is  " + score + ".";
 }

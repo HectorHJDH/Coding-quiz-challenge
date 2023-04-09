@@ -143,3 +143,9 @@ main p {
     font-size: 2rem;
     font-style: italic;
 }
+
+.done, .final-score, .quiz {
+    color: white;
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
