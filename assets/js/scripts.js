@@ -1,12 +1,12 @@
 /* Start of the application when clicking on the 'Start Quiz' button */
 document.addEventListener("DOMContentLoaded", () => {
-  const indexEl =  document.querySelector("#start");
-  const createAccountForm = document.querySelector("#quiz");
+  const startEl =  document.querySelector("#start");
+  const quizEl = document.querySelector("#quiz");
 
   document.querySelector("#start-quiz").addEventListener("click", e => {
     e.preventDefault();
-    indexEl.classList.add("hidden");
-    createAccountForm.classList.remove("hidden");
+    startEl.classList.add("hidden");
+    quizEl.classList.remove("hidden");
 
     loadQuestion();
     startTimer();
@@ -50,7 +50,6 @@ var score = 0;
 var timer = 76;
 var timerId = null;
 
-
 /* Function; loads questions and the choices, the 'for' creates the choices for each 'choices' on the quiz array, ex: if choices had 5 disctinct 
 values then 5 answer boxes will be created */
 function loadQuestion() {
@@ -73,18 +72,19 @@ function loadQuestion() {
   }
 }
 
-// Function; check if the the right answer was selected and returns "Correct" else if no tthe right answer returns "Wrong"
+// Function; check if the the right answer was selected and returns "Correct" else if no the right answer returns "Wrong"
 function checkAnswer(choice) {
   const thisQuiz = quiz[arrayQuestion];
   // If the answer is correct, add to the score and display a message
 
   if (choice === thisQuiz.correctAnswer) {
-    score++;
+    score +=25;
     document.getElementById("result").textContent = "Correct!";
   } else {
+    timer -=10;
     document.getElementById("result").textContent = "Wrong!";
   }
-
+  
   // Continues with the next question by incrementing the array quiz position to the next one
   arrayQuestion++;
   if (arrayQuestion < quiz.length) {
@@ -106,17 +106,27 @@ function startTimer() {
   }, 1000);
 }
 
+var highScores = [];
 // function; ends the quiz and returs in screen how many points the user got, also stops the timer
 function endQuiz() {
   clearInterval(timerId);
-  const quizElement = document.getElementById("quiz");
+  const quizEl = document.getElementById("quiz");
+  const submitEl = document.getElementById("submit-form");
+  const submitBtn = document.getElementById("#submit-score");
 
-  quizElement.innerHTML = 
-  `<div style="justify-content: center; text-align: left; margin-left: 25%; margin-right: 25%; font-family: Arial;">
-  <h2 style="font-size: 40px;">All done!</h2>
-  <p style="font-size: 25px;">Your final score is  ` + score + ` / 5.</p>
-  <p style="font-size: 25px;">Enter Initials: <input style="font-size: 25px;">
-  <button style="font-size: 20px; background-color: #351C75; border-radius: 10px; padding: 5px 15px; color: white; font-family: Arial, Helvetica, sans-serif;">Submit</button></p>
-  </div>`;
-  //document.getElementById("quiz").innerHTML = "<h2>All done!</h2><p>Your final score is  " + score + ".";
+  quizEl.innerHTML = 
+  quizEl.classList.add("hidden");
+  submitEl.classList.remove("hidden");
+  document.getElementById("score").textContent = score + '.';
+
+  document.querySelector(submitBtn).addEventListener("click", e => {
+
+  e.preventDefault();
+  var name = document.querySelector("#name");
+
+  highScores.push(name, score);
+
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+})  
 }
+

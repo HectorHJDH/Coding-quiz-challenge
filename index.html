@@ -31,15 +31,19 @@
             <div id="add-hr"></div>
             <p id="result" class="result"></p>
         </div>
-        <div>
-            <h2 id="done" class="scores"></h2>
-            <p id="final-score" class="final-score"></p>
-        </div>
-        <div>
-            <h2 id="high-scores" class="high-scores"></h2>
-            <p id="final-score" class="final-score"><label></label><button></button></p>
-        </div>
     </form>
+
+    <div id="submit-form" class="hidden submit-form">
+        <form>
+            <h2 class="done-title">All done!</h2>
+            <p class="text-score">Your final score is</p>
+            <p class="text-score" id="score"></p>
+            <br>
+            <label for="name">Enter initials:</label>
+            <input class="input-name" id="name">
+            <button class="submit-btn" id="submit-score">Submit</button>
+        </form>
+      </div>
     
     <script src="./assets/js/scripts.js"></script>
 </body>

@@ -142,10 +142,38 @@ main p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
     font-style: italic;
+    border-top: 2px solid gray;
 }
 
-.done, .final-score, .quiz {
+.submit-form {
+    justify-content: center; 
+    text-align: left; 
+    margin-left: 25%; 
+    margin-right: 25%; 
+    font-family: Arial;
+    font-size: 22px;
+}
+
+.done-title {
+    font-size: 40px;
+    margin: 50px 0 10px 0;
+}
+
+.text-score {
+    display: inline-block;
+}
+
+.input-name {
+    font-size: 22px;
+}
+
+.submit-btn {
+    background-color: #351C75;
+    border: 2px solid #351C75;
+    border-radius: 10px;
+    padding: 8px 10px;
     color: white;
-    background-color: black;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    width: 100px;
 }
